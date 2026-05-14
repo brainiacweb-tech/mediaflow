@@ -51,7 +51,7 @@ function renderTaskItem(t) {
                             </div>
                         </div>
                         <div class="flex items-center gap-1 flex-shrink-0">
-                            ${isComplete ? `<a href="/api/downloads/${t.id}/file" class="download-btn p-2 rounded-lg hover:bg-white/10 transition text-emerald-400" title="Download"><i class="fas fa-download"></i></a>` : ''}
+                            ${isComplete ? `<a href="/api/downloads/${t.id}/file" download class="download-btn p-2 rounded-lg hover:bg-white/10 transition text-emerald-400" title="Download"><i class="fas fa-download"></i></a>` : ''}
                             ${isActive || t.status === 'pending' ? `<button onclick="cancelTask('${t.id}')" class="p-2 rounded-lg hover:bg-white/10 transition text-red-400" title="Cancel"><i class="fas fa-xmark"></i></button>` : ''}
                             ${isComplete || isFailed ? `<button onclick="deleteTask('${t.id}')" class="p-2 rounded-lg hover:bg-white/10 transition text-gray-500" title="Remove"><i class="fas fa-trash-can"></i></button>` : ''}
                         </div>

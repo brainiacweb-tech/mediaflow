@@ -81,6 +81,8 @@ async def get_playlist_info(url: str) -> dict:
             thumb = entry["thumbnail"]
         elif entry.get("thumbnails"):
             thumb = entry["thumbnails"][0].get("url") if entry["thumbnails"] else None
+        if not thumb and vid_id:
+            thumb = f"https://i.ytimg.com/vi/{vid_id}/hqdefault.jpg"
 
         videos.append({
             "id": vid_id,
