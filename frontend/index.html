@@ -2,11 +2,33 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="The ultimate free bulk media downloader. Download YouTube playlists in any quality, and search millions of free books from 5+ sources.">
+    <meta name="author" content="Francis Kusi (THE BRAINIAC)">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MediaFlow — Bulk Media Downloader">
+    <meta property="og:description" content="Download YouTube playlists in any quality. Search millions of free books from 5+ sources. No sign-up, no limits, no ads.">
+    <meta property="og:image" content="/static/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="MediaFlow">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MediaFlow — Bulk Media Downloader">
+    <meta name="twitter:description" content="Download YouTube playlists in any quality. Search millions of free books from 5+ sources.">
+    <meta name="twitter:image" content="/static/og-image.png">
+
     <title>MediaFlow — Bulk Media Downloader</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+    <link rel="apple-touch-icon" href="/static/favicon.svg">
     <link rel="manifest" href="/manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -34,82 +56,74 @@
     <div class="landing-bg">
         <div class="landing-orb landing-orb-1"></div>
         <div class="landing-orb landing-orb-2"></div>
-        <div class="landing-orb landing-orb-3"></div>
         <div class="landing-grid"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="relative z-10 flex items-center justify-between px-6 lg:px-16 py-5">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
-                <i class="fas fa-download text-lg"></i>
+    <nav class="relative z-10 flex items-center justify-between px-4 sm:px-6 lg:px-16 py-4">
+        <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
+                <i class="fas fa-download text-sm sm:text-lg"></i>
             </div>
-            <span class="font-extrabold text-xl tracking-tight">MediaFlow</span>
+            <span class="font-extrabold text-lg sm:text-xl tracking-tight">MediaFlow</span>
         </div>
-        <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
-            <a href="#features" class="hover:text-white transition">Features</a>
-            <a href="#sources" class="hover:text-white transition">Sources</a>
-            <a href="#stats" class="hover:text-white transition">Stats</a>
-        </div>
-        <button onclick="enterApp()" class="px-5 py-2.5 bg-primary-600 hover:bg-primary-500 rounded-xl font-semibold text-sm transition-all hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5">
+        <button onclick="enterApp()" class="px-4 py-2 sm:px-5 sm:py-2.5 bg-primary-600 hover:bg-primary-500 rounded-xl font-semibold text-xs sm:text-sm transition-all hover:shadow-lg hover:shadow-primary-500/25">
             Launch App <i class="fas fa-arrow-right ml-1"></i>
         </button>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-12 lg:pt-20 pb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 pt-8 sm:pt-12 lg:pt-20 pb-12 sm:pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <!-- Left: Text -->
-            <div>
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium mb-8 landing-fade-in">
+            <div class="text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs sm:text-sm font-medium mb-5 sm:mb-8 landing-fade-in">
                     <i class="fas fa-bolt"></i>
-                    <span>Free & Open Source Media Downloader</span>
+                    <span>Free & Open Source</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight landing-fade-in landing-delay-1">
+                <h1 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight landing-fade-in landing-delay-1">
                     Download
                     <span class="landing-gradient-text"> Everything.</span>
                     <br>
-                    <span class="text-gray-400 text-3xl sm:text-4xl lg:text-5xl">Videos. Music. Books.</span>
+                    <span class="text-gray-400 text-xl sm:text-3xl lg:text-5xl">Videos. Music. Books.</span>
                 </h1>
 
-                <p class="mt-6 text-lg text-gray-400 max-w-lg leading-relaxed landing-fade-in landing-delay-2">
-                    The ultimate bulk media downloader. Grab entire YouTube playlists in any quality,
-                    or search millions of free books from 5+ sources — all in one beautiful app.
+                <p class="mt-4 sm:mt-6 text-sm sm:text-lg text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed landing-fade-in landing-delay-2">
+                    Grab entire YouTube playlists in any quality,
+                    or search millions of free books from 5+ sources — all in one app.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-start gap-4 mt-8 landing-fade-in landing-delay-3">
-                    <button onclick="enterApp()" class="group px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1 flex items-center gap-3">
+                <div class="flex flex-col sm:flex-row items-center lg:items-start gap-3 mt-6 sm:mt-8 landing-fade-in landing-delay-3">
+                    <button onclick="enterApp()" class="group w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-base sm:text-lg transition-all shadow-2xl shadow-primary-500/25 flex items-center justify-center gap-2 sm:gap-3">
                         <i class="fas fa-rocket"></i>
                         Start Downloading
                         <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </button>
-                    <a href="#features" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl font-semibold text-lg transition-all flex items-center gap-3">
+                    <a href="#features" class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-semibold text-base sm:text-lg transition-all flex items-center justify-center gap-2 sm:gap-3">
                         <i class="fas fa-play-circle"></i>
                         See Features
                     </a>
                 </div>
 
                 <!-- Trust badges -->
-                <div class="flex items-center gap-6 mt-10 landing-fade-in landing-delay-4">
-                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                <div class="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-6 sm:mt-10 landing-fade-in landing-delay-4">
+                    <div class="flex items-center gap-1.5 text-xs sm:text-sm text-gray-500">
                         <i class="fas fa-shield-halved text-emerald-400"></i> No Sign-up
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <div class="flex items-center gap-1.5 text-xs sm:text-sm text-gray-500">
                         <i class="fas fa-infinity text-purple-400"></i> No Limits
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <div class="flex items-center gap-1.5 text-xs sm:text-sm text-gray-500">
                         <i class="fas fa-ban text-red-400"></i> No Ads
                     </div>
                 </div>
             </div>
 
             <!-- Right: Hero Visual / App Mockup -->
-            <div class="landing-fade-in landing-delay-3 relative">
+            <div class="landing-fade-in landing-delay-3 relative hidden sm:block">
                 <div class="hero-mockup">
-                    <!-- Glow behind -->
                     <div class="hero-mockup-glow"></div>
-                    <!-- Browser frame -->
                     <div class="hero-browser">
                         <div class="hero-browser-bar">
                             <div class="hero-browser-dots">
@@ -122,9 +136,7 @@
                                 <span>mediaflow.app</span>
                             </div>
                         </div>
-                        <!-- App preview content -->
                         <div class="hero-app-preview">
-                            <!-- Mini sidebar -->
                             <div class="hero-sidebar">
                                 <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center mb-4">
                                     <i class="fas fa-download text-[8px]"></i>
@@ -135,9 +147,7 @@
                                     <div class="hero-nav-item"><i class="fas fa-list-check text-[9px]"></i></div>
                                 </div>
                             </div>
-                            <!-- Main area -->
                             <div class="hero-main">
-                                <!-- Search bar mock -->
                                 <div class="hero-search-bar">
                                     <div class="hero-search-input">
                                         <i class="fas fa-link text-gray-600" style="font-size:8px"></i>
@@ -147,7 +157,6 @@
                                         <i class="fas fa-search" style="font-size:7px"></i>
                                     </div>
                                 </div>
-                                <!-- Video grid mock -->
                                 <div class="hero-video-grid">
                                     <div class="hero-video-card">
                                         <div class="hero-thumb" style="background: linear-gradient(135deg, #ef4444, #f97316)">
@@ -177,7 +186,6 @@
                                         <div class="hero-vid-title"></div>
                                     </div>
                                 </div>
-                                <!-- Progress bar mock -->
                                 <div class="hero-progress-section">
                                     <div class="flex items-center justify-between mb-1">
                                         <span style="font-size:8px" class="text-emerald-400 font-bold">Downloading...</span>
@@ -192,98 +200,98 @@
                     </div>
                 </div>
 
-                <!-- Floating badges around mockup -->
-                <div class="hero-float-badge badge-1">
+                <!-- Floating badges - hidden on small tablets -->
+                <div class="hero-float-badge badge-1 hidden md:flex">
                     <i class="fab fa-youtube text-red-400"></i>
                     <span>1080p</span>
                 </div>
-                <div class="hero-float-badge badge-2">
+                <div class="hero-float-badge badge-2 hidden md:flex">
                     <i class="fas fa-book text-emerald-400"></i>
                     <span>PDF</span>
                 </div>
-                <div class="hero-float-badge badge-3">
+                <div class="hero-float-badge badge-3 hidden md:flex">
                     <i class="fas fa-music text-purple-400"></i>
                     <span>MP3</span>
                 </div>
             </div>
         </div>
 
-        <!-- Preview Cards below -->
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 landing-fade-in landing-delay-4">
+        <!-- Preview Cards -->
+        <div class="mt-12 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 landing-fade-in landing-delay-4">
             <div class="landing-preview-card group">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <i class="fab fa-youtube text-red-400 text-lg"></i>
+                <div class="flex items-center gap-3 mb-3 sm:mb-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fab fa-youtube text-red-400 text-base sm:text-lg"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold">YouTube</h3>
-                        <p class="text-xs text-gray-500">Videos & Playlists</p>
+                        <h3 class="font-bold text-sm sm:text-base">YouTube</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-500">Videos & Playlists</p>
                     </div>
                 </div>
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Entire playlists in one click
+                <div class="space-y-1.5 sm:space-y-2">
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Entire playlists in one click
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> 144p to 1080p quality
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> 144p to 1080p quality
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> MP4 video or MP3 audio
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> MP4 video or MP3 audio
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Real-time progress tracking
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Real-time progress tracking
                     </div>
                 </div>
             </div>
 
             <div class="landing-preview-card group">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <i class="fas fa-book text-emerald-400 text-lg"></i>
+                <div class="flex items-center gap-3 mb-3 sm:mb-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book text-emerald-400 text-base sm:text-lg"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold">Books</h3>
-                        <p class="text-xs text-gray-500">PDF & EPUB</p>
+                        <h3 class="font-bold text-sm sm:text-base">Books</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-500">PDF & EPUB</p>
                     </div>
                 </div>
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> 5+ search sources
+                <div class="space-y-1.5 sm:space-y-2">
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> 5+ search sources
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> PDF and EPUB formats
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> PDF and EPUB formats
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Direct downloads to device
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Direct downloads to device
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Millions of free books
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Millions of free books
                     </div>
                 </div>
             </div>
 
-            <div class="landing-preview-card group">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <i class="fas fa-bolt text-purple-400 text-lg"></i>
+            <div class="landing-preview-card group sm:col-span-2 md:col-span-1">
+                <div class="flex items-center gap-3 mb-3 sm:mb-4">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bolt text-purple-400 text-base sm:text-lg"></i>
                     </div>
                     <div>
-                        <h3 class="font-bold">Power Features</h3>
-                        <p class="text-xs text-gray-500">Built for speed</p>
+                        <h3 class="font-bold text-sm sm:text-base">Power Features</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-500">Built for speed</p>
                     </div>
                 </div>
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Concurrent downloads
+                <div class="space-y-1.5 sm:space-y-2">
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Concurrent downloads
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> WebSocket live progress
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> WebSocket live progress
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Dark & light themes
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Dark & light themes
                     </div>
-                    <div class="flex items-center gap-2 text-sm text-gray-400">
-                        <i class="fas fa-check text-emerald-400 text-xs"></i> Mobile-first responsive
+                    <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-[10px]"></i> Mobile responsive
                     </div>
                 </div>
             </div>
@@ -291,115 +299,115 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="relative z-10 py-24 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 lg:px-16">
-            <div class="text-center mb-16">
-                <p class="text-primary-400 font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
-                <h2 class="text-4xl lg:text-5xl font-extrabold">Why MediaFlow?</h2>
-                <p class="mt-4 text-gray-400 max-w-xl mx-auto">Built with modern tech for the best downloading experience.</p>
+    <section id="features" class="relative z-10 py-12 sm:py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div class="text-center mb-10 sm:mb-16">
+                <p class="text-primary-400 font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3">Features</p>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold">Why MediaFlow?</h2>
+                <p class="mt-3 sm:mt-4 text-sm sm:text-base text-gray-400 max-w-xl mx-auto">Built with modern tech for the best downloading experience.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
                 <div class="landing-feature-card">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-600/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-layer-group text-red-400 text-lg"></i>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-red-500/20 to-red-600/10 flex items-center justify-center mb-3 sm:mb-4">
+                        <i class="fas fa-layer-group text-red-400 text-sm sm:text-lg"></i>
                     </div>
-                    <h3 class="font-bold mb-2">Bulk Downloads</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Select and download entire playlists with a single click. Choose which videos you want.</p>
+                    <h3 class="font-bold text-xs sm:text-base mb-1 sm:mb-2">Bulk Downloads</h3>
+                    <p class="text-[10px] sm:text-sm text-gray-500 leading-relaxed">Download entire playlists with a single click.</p>
                 </div>
                 <div class="landing-feature-card">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-gauge-high text-blue-400 text-lg"></i>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center mb-3 sm:mb-4">
+                        <i class="fas fa-gauge-high text-blue-400 text-sm sm:text-lg"></i>
                     </div>
-                    <h3 class="font-bold mb-2">Live Progress</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Real-time WebSocket progress bars with speed and ETA for every download.</p>
+                    <h3 class="font-bold text-xs sm:text-base mb-1 sm:mb-2">Live Progress</h3>
+                    <p class="text-[10px] sm:text-sm text-gray-500 leading-relaxed">Real-time progress bars with speed and ETA.</p>
                 </div>
                 <div class="landing-feature-card">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-database text-emerald-400 text-lg"></i>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center mb-3 sm:mb-4">
+                        <i class="fas fa-database text-emerald-400 text-sm sm:text-lg"></i>
                     </div>
-                    <h3 class="font-bold mb-2">5+ Book Sources</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">OpenLibrary, Gutenberg, Archive.org, ISBNdb, and more — searched in parallel.</p>
+                    <h3 class="font-bold text-xs sm:text-base mb-1 sm:mb-2">5+ Sources</h3>
+                    <p class="text-[10px] sm:text-sm text-gray-500 leading-relaxed">OpenLibrary, Gutenberg, Archive.org, and more.</p>
                 </div>
                 <div class="landing-feature-card">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-mobile-screen text-purple-400 text-lg"></i>
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 flex items-center justify-center mb-3 sm:mb-4">
+                        <i class="fas fa-mobile-screen text-purple-400 text-sm sm:text-lg"></i>
                     </div>
-                    <h3 class="font-bold mb-2">Mobile Ready</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Fully responsive PWA. Works beautifully on phones, tablets, and desktops.</p>
+                    <h3 class="font-bold text-xs sm:text-base mb-1 sm:mb-2">Mobile Ready</h3>
+                    <p class="text-[10px] sm:text-sm text-gray-500 leading-relaxed">Works beautifully on phones and tablets.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sources Section -->
-    <section id="sources" class="relative z-10 py-24 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 lg:px-16">
-            <div class="text-center mb-16">
-                <p class="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-3">Integrations</p>
-                <h2 class="text-4xl lg:text-5xl font-extrabold">Powered By</h2>
-                <p class="mt-4 text-gray-400 max-w-xl mx-auto">We aggregate the best free sources so you don't have to search everywhere.</p>
+    <section id="sources" class="relative z-10 py-12 sm:py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div class="text-center mb-10 sm:mb-16">
+                <p class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3">Integrations</p>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold">Powered By</h2>
+                <p class="mt-3 sm:mt-4 text-sm sm:text-base text-gray-400 max-w-xl mx-auto">We aggregate the best free sources so you don't have to search everywhere.</p>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
                 <div class="landing-source-card">
-                    <i class="fab fa-youtube text-2xl text-red-400 mb-2"></i>
-                    <span class="text-xs font-semibold">YouTube</span>
+                    <i class="fab fa-youtube text-xl sm:text-2xl text-red-400 mb-1.5 sm:mb-2"></i>
+                    <span class="text-[10px] sm:text-xs font-semibold">YouTube</span>
                 </div>
                 <div class="landing-source-card">
-                    <i class="fas fa-landmark text-2xl text-amber-400 mb-2"></i>
-                    <span class="text-xs font-semibold">Archive.org</span>
+                    <i class="fas fa-landmark text-xl sm:text-2xl text-amber-400 mb-1.5 sm:mb-2"></i>
+                    <span class="text-[10px] sm:text-xs font-semibold">Archive.org</span>
                 </div>
                 <div class="landing-source-card">
-                    <i class="fas fa-book-open text-2xl text-blue-400 mb-2"></i>
-                    <span class="text-xs font-semibold">OpenLibrary</span>
+                    <i class="fas fa-book-open text-xl sm:text-2xl text-blue-400 mb-1.5 sm:mb-2"></i>
+                    <span class="text-[10px] sm:text-xs font-semibold">OpenLibrary</span>
                 </div>
                 <div class="landing-source-card">
-                    <i class="fas fa-feather text-2xl text-yellow-400 mb-2"></i>
-                    <span class="text-xs font-semibold">Gutenberg</span>
+                    <i class="fas fa-feather text-xl sm:text-2xl text-yellow-400 mb-1.5 sm:mb-2"></i>
+                    <span class="text-[10px] sm:text-xs font-semibold">Gutenberg</span>
                 </div>
                 <div class="landing-source-card">
-                    <i class="fas fa-barcode text-2xl text-purple-400 mb-2"></i>
-                    <span class="text-xs font-semibold">ISBNdb</span>
+                    <i class="fas fa-barcode text-xl sm:text-2xl text-purple-400 mb-1.5 sm:mb-2"></i>
+                    <span class="text-[10px] sm:text-xs font-semibold">ISBNdb</span>
                 </div>
                 <div class="landing-source-card">
-                    <i class="fas fa-plus text-2xl text-gray-500 mb-2"></i>
-                    <span class="text-xs font-semibold text-gray-500">More Soon</span>
+                    <i class="fas fa-plus text-xl sm:text-2xl text-gray-500 mb-1.5 sm:mb-2"></i>
+                    <span class="text-[10px] sm:text-xs font-semibold text-gray-500">More</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section id="stats" class="relative z-10 py-24 border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-6 lg:px-16">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+    <section id="stats" class="relative z-10 py-12 sm:py-24 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-16">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
                 <div class="landing-stat">
-                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">6</div>
-                    <p class="text-sm text-gray-500 mt-2">Quality Options</p>
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold landing-gradient-text">6</div>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2">Quality Options</p>
                 </div>
                 <div class="landing-stat">
-                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">5+</div>
-                    <p class="text-sm text-gray-500 mt-2">Book Sources</p>
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold landing-gradient-text">5+</div>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2">Book Sources</p>
                 </div>
                 <div class="landing-stat">
-                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">50</div>
-                    <p class="text-sm text-gray-500 mt-2">Max Playlist Size</p>
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold landing-gradient-text">50</div>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2">Max Playlist Size</p>
                 </div>
                 <div class="landing-stat">
-                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">0</div>
-                    <p class="text-sm text-gray-500 mt-2">Ads or Limits</p>
+                    <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold landing-gradient-text">0</div>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2">Ads or Limits</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="relative z-10 py-24 border-t border-white/5">
-        <div class="max-w-3xl mx-auto px-6 lg:px-16 text-center">
-            <h2 class="text-4xl lg:text-5xl font-extrabold mb-6">Ready to Download?</h2>
-            <p class="text-lg text-gray-400 mb-10">No sign-up needed. No limits. Just paste a URL and go.</p>
-            <button onclick="enterApp()" class="group px-10 py-5 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-xl transition-all shadow-2xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1 inline-flex items-center gap-3">
+    <section class="relative z-10 py-12 sm:py-24 border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-16 text-center">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">Ready to Download?</h2>
+            <p class="text-sm sm:text-lg text-gray-400 mb-6 sm:mb-10">No sign-up needed. No limits. Just paste a URL and go.</p>
+            <button onclick="enterApp()" class="group w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-base sm:text-xl transition-all shadow-2xl shadow-primary-500/25 inline-flex items-center justify-center gap-3">
                 <i class="fas fa-rocket"></i>
                 Launch MediaFlow
                 <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -408,15 +416,15 @@
     </section>
 
     <!-- Landing Footer -->
-    <footer class="relative z-10 border-t border-white/5 py-12">
-        <div class="max-w-6xl mx-auto px-6 lg:px-16 text-center">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary-500/25">
-                <i class="fas fa-download text-white"></i>
+    <footer class="relative z-10 border-t border-white/5 py-8 sm:py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-16 text-center">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg shadow-primary-500/25">
+                <i class="fas fa-download text-white text-sm sm:text-base"></i>
             </div>
-            <p class="font-bold text-lg mb-1">MediaFlow</p>
-            <p class="text-xs text-gray-500 mb-6">Premium Bulk Media Downloader</p>
+            <p class="font-bold text-base sm:text-lg mb-1">MediaFlow</p>
+            <p class="text-[10px] sm:text-xs text-gray-500 mb-4 sm:mb-6">Premium Bulk Media Downloader</p>
             <div class="footer-divider"></div>
-            <p class="footer-credit mt-6">
+            <p class="footer-credit mt-4 sm:mt-6">
                 Designed &amp; Developed by <span class="brand">Francis Kusi</span>
                 <span class="brainiac">THE BRAINIAC</span>
             </p>
@@ -428,7 +436,7 @@
 <!-- ==================== MAIN APP (hidden until Enter) ==================== -->
 
 <!-- Toast Container -->
-<div id="toast-container" class="fixed top-4 right-4 z-[100] space-y-2 max-w-sm"></div>
+<div id="toast-container" class="fixed top-4 right-4 z-[100] space-y-2 max-w-[calc(100vw-2rem)] sm:max-w-sm"></div>
 
 <!-- Mobile Header -->
 <header class="lg:hidden fixed top-0 inset-x-0 z-50 glass-header">
@@ -485,37 +493,37 @@
 
 <!-- Main Content -->
 <main class="lg:ml-64 pt-14 lg:pt-0 pb-20 lg:pb-6">
-    <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
 
         <!-- YouTube Tab -->
         <section id="tab-youtube" class="tab-content">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center">
-                    <i class="fab fa-youtube text-red-400 text-xl"></i>
+            <div class="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-500/20 flex items-center justify-center">
+                    <i class="fab fa-youtube text-red-400 text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl font-bold">YouTube Downloader</h2>
-                    <p class="text-gray-400 text-sm">Download videos & playlists in bulk</p>
+                    <h2 class="text-lg sm:text-2xl font-bold">YouTube Downloader</h2>
+                    <p class="text-gray-400 text-xs sm:text-sm">Download videos & playlists in bulk</p>
                 </div>
             </div>
 
             <!-- URL Input -->
-            <div class="glass-card p-6" id="yt-drop-zone">
+            <div class="glass-card p-3 sm:p-6" id="yt-drop-zone">
                 <div class="relative">
-                    <input type="text" id="yt-url" placeholder="Paste YouTube video or playlist URL..."
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 pr-24 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition"
+                    <input type="text" id="yt-url" placeholder="Paste YouTube URL..."
+                        class="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-3 pr-20 sm:pr-24 text-sm sm:text-base text-white placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition"
                         onkeydown="if(event.key==='Enter') fetchYouTubeInfo()">
                     <button onclick="fetchYouTubeInfo()" id="yt-fetch-btn"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg font-medium text-sm transition flex items-center gap-2">
+                        class="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg font-medium text-xs sm:text-sm transition flex items-center gap-1.5 sm:gap-2">
                         <i class="fas fa-search"></i>
                         <span class="hidden sm:inline">Fetch</span>
                     </button>
                 </div>
-                <div class="flex flex-wrap gap-3 mt-4">
-                    <div class="flex items-center gap-2">
-                        <label class="text-sm text-gray-400">Quality:</label>
-                        <select id="yt-quality" onchange="onQualityChange()" class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-primary-500">
-                            <option value="best">Best Available</option>
+                <div class="flex flex-wrap gap-2 sm:gap-3 mt-3 sm:mt-4">
+                    <div class="flex items-center gap-1.5 sm:gap-2">
+                        <label class="text-xs sm:text-sm text-gray-400">Quality:</label>
+                        <select id="yt-quality" onchange="onQualityChange()" class="bg-white/5 border border-white/10 rounded-lg px-2 sm:px-3 py-1.5 text-xs sm:text-sm outline-none focus:border-primary-500">
+                            <option value="best">Best</option>
                             <option value="1080">1080p</option>
                             <option value="720" selected>720p</option>
                             <option value="480">480p</option>
@@ -523,21 +531,21 @@
                             <option value="144">144p</option>
                         </select>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <label class="text-sm text-gray-400">Format:</label>
-                        <select id="yt-format" class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-primary-500">
-                            <option value="mp4">MP4 Video</option>
-                            <option value="mp3">MP3 Audio</option>
+                    <div class="flex items-center gap-1.5 sm:gap-2">
+                        <label class="text-xs sm:text-sm text-gray-400">Format:</label>
+                        <select id="yt-format" class="bg-white/5 border border-white/10 rounded-lg px-2 sm:px-3 py-1.5 text-xs sm:text-sm outline-none focus:border-primary-500">
+                            <option value="mp4">MP4</option>
+                            <option value="mp3">MP3</option>
                         </select>
                     </div>
                 </div>
             </div>
 
             <!-- Loading Skeleton -->
-            <div id="yt-skeleton" class="hidden mt-6 space-y-4">
-                <div class="glass-card p-6 animate-pulse">
-                    <div class="h-6 bg-white/10 rounded w-2/3 mb-4"></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div id="yt-skeleton" class="hidden mt-4 sm:mt-6 space-y-4">
+                <div class="glass-card p-4 sm:p-6 animate-pulse">
+                    <div class="h-5 sm:h-6 bg-white/10 rounded w-2/3 mb-4"></div>
+                    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                         <div class="space-y-3"><div class="aspect-video bg-white/10 rounded-lg"></div><div class="h-4 bg-white/10 rounded w-3/4"></div></div>
                         <div class="space-y-3"><div class="aspect-video bg-white/10 rounded-lg"></div><div class="h-4 bg-white/10 rounded w-3/4"></div></div>
                         <div class="space-y-3 hidden lg:block"><div class="aspect-video bg-white/10 rounded-lg"></div><div class="h-4 bg-white/10 rounded w-3/4"></div></div>
@@ -546,51 +554,51 @@
             </div>
 
             <!-- Playlist Results -->
-            <div id="yt-results" class="hidden mt-6">
-                <div class="glass-card p-6">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                        <div>
-                            <h3 id="yt-playlist-title" class="text-xl font-bold"></h3>
-                            <p id="yt-video-count" class="text-sm text-gray-400"></p>
+            <div id="yt-results" class="hidden mt-4 sm:mt-6">
+                <div class="glass-card p-3 sm:p-6">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <div class="min-w-0">
+                            <h3 id="yt-playlist-title" class="text-base sm:text-xl font-bold truncate"></h3>
+                            <p id="yt-video-count" class="text-xs sm:text-sm text-gray-400"></p>
                         </div>
-                        <div class="flex gap-2">
-                            <button onclick="selectAllVideos()" class="px-3 py-1.5 text-sm bg-white/10 hover:bg-white/20 rounded-lg transition">Select All</button>
-                            <button onclick="deselectAllVideos()" class="px-3 py-1.5 text-sm bg-white/10 hover:bg-white/20 rounded-lg transition">Deselect All</button>
-                            <button onclick="downloadSelected()" class="px-4 py-1.5 text-sm bg-primary-600 hover:bg-primary-500 rounded-lg font-medium transition flex items-center gap-2">
+                        <div class="flex gap-2 flex-shrink-0">
+                            <button onclick="selectAllVideos()" class="px-2.5 sm:px-3 py-1.5 text-xs bg-white/10 hover:bg-white/20 rounded-lg transition">All</button>
+                            <button onclick="deselectAllVideos()" class="px-2.5 sm:px-3 py-1.5 text-xs bg-white/10 hover:bg-white/20 rounded-lg transition">None</button>
+                            <button onclick="downloadSelected()" class="px-3 sm:px-4 py-1.5 text-xs bg-primary-600 hover:bg-primary-500 rounded-lg font-medium transition flex items-center gap-1.5">
                                 <i class="fas fa-download"></i> Download
                             </button>
                         </div>
                     </div>
-                    <div id="yt-video-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <div id="yt-video-list" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4"></div>
                 </div>
             </div>
         </section>
 
         <!-- Books Tab -->
         <section id="tab-books" class="tab-content hidden">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
-                    <i class="fas fa-book text-emerald-400 text-xl"></i>
+            <div class="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                    <i class="fas fa-book text-emerald-400 text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                    <h2 class="text-2xl font-bold">Book Downloader</h2>
-                    <p class="text-gray-400 text-sm">Search & download digital books</p>
+                    <h2 class="text-lg sm:text-2xl font-bold">Book Downloader</h2>
+                    <p class="text-gray-400 text-xs sm:text-sm">Search & download digital books</p>
                 </div>
             </div>
 
-            <div class="glass-card p-6">
-                <div class="flex gap-3">
-                    <select id="book-search-type" class="bg-white/5 border border-white/10 rounded-xl px-3 py-3.5 text-sm outline-none focus:border-primary-500 w-28">
+            <div class="glass-card p-3 sm:p-6">
+                <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                    <select id="book-search-type" class="bg-white/5 border border-white/10 rounded-xl px-3 py-3 sm:py-3.5 text-xs sm:text-sm outline-none focus:border-primary-500 w-full sm:w-28">
                         <option value="title">Title</option>
                         <option value="author">Author</option>
                         <option value="isbn">ISBN</option>
                     </select>
                     <div class="relative flex-1">
                         <input type="text" id="book-query" placeholder="Search for books..."
-                            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 pr-24 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 pr-20 sm:pr-24 text-sm sm:text-base text-white placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition"
                             onkeydown="if(event.key==='Enter') searchBooks()">
                         <button onclick="searchBooks()" id="book-search-btn"
-                            class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium text-sm transition flex items-center gap-2">
+                            class="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium text-xs sm:text-sm transition flex items-center gap-1.5 sm:gap-2">
                             <i class="fas fa-search"></i>
                             <span class="hidden sm:inline">Search</span>
                         </button>
@@ -599,67 +607,66 @@
             </div>
 
             <!-- Book Skeleton -->
-            <div id="book-skeleton" class="hidden mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="glass-card p-4 animate-pulse"><div class="flex gap-4"><div class="w-20 h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
-                <div class="glass-card p-4 animate-pulse"><div class="flex gap-4"><div class="w-20 h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
-                <div class="glass-card p-4 animate-pulse hidden lg:block"><div class="flex gap-4"><div class="w-20 h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
+            <div id="book-skeleton" class="hidden mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                <div class="glass-card p-3 sm:p-4 animate-pulse"><div class="flex gap-3 sm:gap-4"><div class="w-16 sm:w-20 h-24 sm:h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
+                <div class="glass-card p-3 sm:p-4 animate-pulse hidden sm:block"><div class="flex gap-3 sm:gap-4"><div class="w-16 sm:w-20 h-24 sm:h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
+                <div class="glass-card p-3 sm:p-4 animate-pulse hidden lg:block"><div class="flex gap-3 sm:gap-4"><div class="w-16 sm:w-20 h-24 sm:h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
             </div>
 
-            <div id="book-results" class="hidden mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            <div id="book-results" class="hidden mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
         </section>
 
         <!-- Queue Tab -->
         <section id="tab-queue" class="tab-content hidden">
-            <div class="flex items-center justify-between mb-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
-                        <i class="fas fa-list-check text-amber-400 text-xl"></i>
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-2.5 sm:gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                        <i class="fas fa-list-check text-amber-400 text-lg sm:text-xl"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold">Download Queue</h2>
-                        <p class="text-gray-400 text-sm">Active and pending downloads</p>
+                        <h2 class="text-lg sm:text-2xl font-bold">Download Queue</h2>
+                        <p class="text-gray-400 text-xs sm:text-sm">Active and pending downloads</p>
                     </div>
                 </div>
-                <button onclick="downloadAllAsZip()" id="zip-btn" class="hidden px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg text-sm font-medium transition flex items-center gap-2">
-                    <i class="fas fa-file-zipper"></i> Download ZIP
+                <button onclick="downloadAllAsZip()" id="zip-btn" class="hidden px-3 sm:px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg text-xs sm:text-sm font-medium transition flex items-center gap-1.5 sm:gap-2">
+                    <i class="fas fa-file-zipper"></i> <span class="hidden sm:inline">Download</span> ZIP
                 </button>
             </div>
-            <div id="queue-list" class="space-y-3">
-                <div class="glass-card p-12 text-center text-gray-500">
-                    <i class="fas fa-inbox text-4xl mb-3 block"></i>
-                    <p>No active downloads</p>
+            <div id="queue-list" class="space-y-2 sm:space-y-3">
+                <div class="glass-card p-8 sm:p-12 text-center text-gray-500">
+                    <i class="fas fa-inbox text-3xl sm:text-4xl mb-2 sm:mb-3 block"></i>
+                    <p class="text-sm sm:text-base">No active downloads</p>
                 </div>
             </div>
         </section>
 
         <!-- History Tab -->
         <section id="tab-history" class="tab-content hidden">
-            <div class="flex items-center justify-between mb-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                        <i class="fas fa-clock-rotate-left text-blue-400 text-xl"></i>
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-2.5 sm:gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                        <i class="fas fa-clock-rotate-left text-blue-400 text-lg sm:text-xl"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold">Download History</h2>
-                        <p class="text-gray-400 text-sm">Previously downloaded files</p>
+                        <h2 class="text-lg sm:text-2xl font-bold">Download History</h2>
+                        <p class="text-gray-400 text-xs sm:text-sm">Previously downloaded files</p>
                     </div>
                 </div>
-                <div class="flex gap-2">
-                    <select id="history-filter" onchange="loadHistory()" class="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-primary-500">
-                        <option value="">All</option>
-                        <option value="completed">Completed</option>
-                        <option value="failed">Failed</option>
-                        <option value="cancelled">Cancelled</option>
-                    </select>
-                </div>
+                <select id="history-filter" onchange="loadHistory()" class="bg-white/5 border border-white/10 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm outline-none focus:border-primary-500">
+                    <option value="">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="failed">Failed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
             </div>
-            <div id="history-list" class="space-y-3">
-                <div class="glass-card p-12 text-center text-gray-500">
-                    <i class="fas fa-clock-rotate-left text-4xl mb-3 block"></i>
-                    <p>No download history</p>
+            <div id="history-list" class="space-y-2 sm:space-y-3">
+                <div class="glass-card p-8 sm:p-12 text-center text-gray-500">
+                    <i class="fas fa-clock-rotate-left text-3xl sm:text-4xl mb-2 sm:mb-3 block"></i>
+                    <p class="text-sm sm:text-base">No download history</p>
                 </div>
             </div>
         </section>
+
         <!-- Footer -->
         <footer class="app-footer">
             <div class="footer-brand">
@@ -680,23 +687,23 @@
 </main>
 
 <!-- Mobile Bottom Nav -->
-<nav class="lg:hidden fixed bottom-0 inset-x-0 z-50 glass-nav">
-    <div class="flex justify-around items-center h-16">
+<nav class="lg:hidden fixed bottom-0 inset-x-0 z-50 glass-nav safe-bottom">
+    <div class="flex justify-around items-center h-14 sm:h-16">
         <button onclick="switchTab('youtube')" data-tab="youtube" class="mobile-nav-item active">
-            <i class="fab fa-youtube text-lg"></i>
+            <i class="fab fa-youtube text-base sm:text-lg"></i>
             <span class="text-[10px] mt-0.5">YouTube</span>
         </button>
         <button onclick="switchTab('books')" data-tab="books" class="mobile-nav-item">
-            <i class="fas fa-book text-lg"></i>
+            <i class="fas fa-book text-base sm:text-lg"></i>
             <span class="text-[10px] mt-0.5">Books</span>
         </button>
         <button onclick="switchTab('queue')" data-tab="queue" class="mobile-nav-item relative">
-            <i class="fas fa-list-check text-lg"></i>
+            <i class="fas fa-list-check text-base sm:text-lg"></i>
             <span class="text-[10px] mt-0.5">Queue</span>
             <span id="queue-badge-mobile" class="absolute -top-1 -right-1 badge-small hidden">0</span>
         </button>
         <button onclick="switchTab('history')" data-tab="history" class="mobile-nav-item">
-            <i class="fas fa-clock-rotate-left text-lg"></i>
+            <i class="fas fa-clock-rotate-left text-base sm:text-lg"></i>
             <span class="text-[10px] mt-0.5">History</span>
         </button>
     </div>
@@ -706,6 +713,6 @@
 <script src="/static/js/youtube.js"></script>
 <script src="/static/js/books.js"></script>
 <script src="/static/js/downloads.js"></script>
-<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');</script>
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(function(){});</script>
 </body>
 </html>
