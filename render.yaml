@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: mediaflow
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DOWNLOAD_PATH
+        value: /tmp/downloads
+      - key: MAX_CONCURRENT_DOWNLOADS
+        value: "3"
+      - key: MAX_PLAYLIST_SIZE
+        value: "50"
+      - key: FILE_EXPIRY_MINUTES
+        value: "30"
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///downloader.db
+      - key: ISBNDB_API_KEY
+        sync: false

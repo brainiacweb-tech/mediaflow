@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>MediaFlow — Bulk Media Downloader</title>
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81',950:'#1e1b4b' },
+                        surface: { 50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',700:'#334155',800:'#1e293b',900:'#0f172a',950:'#020617' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-950 text-white min-h-screen font-sans antialiased">
+
+<!-- Toast Container -->
+<div id="toast-container" class="fixed top-4 right-4 z-[100] space-y-2 max-w-sm"></div>
+
+<!-- Mobile Header -->
+<header class="lg:hidden fixed top-0 inset-x-0 z-50 glass-header">
+    <div class="flex items-center justify-between px-4 h-14">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center">
+                <i class="fas fa-download text-sm"></i>
+            </div>
+            <span class="font-bold text-lg">MediaFlow</span>
+        </div>
+        <button onclick="toggleTheme()" class="p-2 rounded-lg hover:bg-white/10 transition">
+            <i class="fas fa-moon" id="theme-icon-mobile"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Desktop Sidebar -->
+<aside id="sidebar" class="hidden lg:flex fixed inset-y-0 left-0 z-40 w-64 flex-col glass-sidebar">
+    <div class="flex items-center gap-3 px-6 h-16 border-b border-white/10">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg shadow-primary-500/25">
+            <i class="fas fa-download text-lg"></i>
+        </div>
+        <div>
+            <h1 class="font-bold text-lg leading-tight">MediaFlow</h1>
+            <p class="text-xs text-gray-400">Bulk Downloader</p>
+        </div>
+    </div>
+    <nav class="flex-1 px-3 py-4 space-y-1">
+        <a href="#" onclick="switchTab('youtube')" data-tab="youtube" class="nav-item active">
+            <i class="fab fa-youtube w-5 text-center"></i>
+            <span>YouTube</span>
+        </a>
+        <a href="#" onclick="switchTab('books')" data-tab="books" class="nav-item">
+            <i class="fas fa-book w-5 text-center"></i>
+            <span>Books</span>
+        </a>
+        <a href="#" onclick="switchTab('queue')" data-tab="queue" class="nav-item">
+            <i class="fas fa-list-check w-5 text-center"></i>
+            <span>Download Queue</span>
+            <span id="queue-badge" class="ml-auto badge hidden">0</span>
+        </a>
+        <a href="#" onclick="switchTab('history')" data-tab="history" class="nav-item">
+            <i class="fas fa-clock-rotate-left w-5 text-center"></i>
+            <span>History</span>
+        </a>
+    </nav>
+    <div class="px-4 py-3 border-t border-white/10">
+        <button onclick="toggleTheme()" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-white/10 transition text-sm text-gray-400">
+            <i class="fas fa-moon w-5 text-center" id="theme-icon-desktop"></i>
+            <span id="theme-label">Dark Mode</span>
+        </button>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="lg:ml-64 pt-14 lg:pt-0 pb-20 lg:pb-6">
+    <div class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+
+        <!-- YouTube Tab -->
+        <section id="tab-youtube" class="tab-content">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center">
+                    <i class="fab fa-youtube text-red-400 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold">YouTube Downloader</h2>
+                    <p class="text-gray-400 text-sm">Download videos & playlists in bulk</p>
+                </div>
+            </div>
+
+            <!-- URL Input -->
+            <div class="glass-card p-6" id="yt-drop-zone">
+                <div class="relative">
+                    <input type="text" id="yt-url" placeholder="Paste YouTube video or playlist URL..."
+                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 pr-24 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition"
+                        onkeydown="if(event.key==='Enter') fetchYouTubeInfo()">
+                    <button onclick="fetchYouTubeInfo()" id="yt-fetch-btn"
+                        class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg font-medium text-sm transition flex items-center gap-2">
+                        <i class="fas fa-search"></i>
+                        <span class="hidden sm:inline">Fetch</span>
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-3 mt-4">
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm text-gray-400">Quality:</label>
+                        <select id="yt-quality" onchange="onQualityChange()" class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-primary-500">
+                            <option value="best">Best Available</option>
+                            <option value="1080">1080p</option>
+                            <option value="720" selected>720p</option>
+                            <option value="480">480p</option>
+                            <option value="360">360p</option>
+                            <option value="144">144p</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm text-gray-400">Format:</label>
+                        <select id="yt-format" class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-primary-500">
+                            <option value="mp4">MP4 Video</option>
+                            <option value="mp3">MP3 Audio</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Skeleton -->
+            <div id="yt-skeleton" class="hidden mt-6 space-y-4">
+                <div class="glass-card p-6 animate-pulse">
+                    <div class="h-6 bg-white/10 rounded w-2/3 mb-4"></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="space-y-3"><div class="aspect-video bg-white/10 rounded-lg"></div><div class="h-4 bg-white/10 rounded w-3/4"></div></div>
+                        <div class="space-y-3"><div class="aspect-video bg-white/10 rounded-lg"></div><div class="h-4 bg-white/10 rounded w-3/4"></div></div>
+                        <div class="space-y-3 hidden lg:block"><div class="aspect-video bg-white/10 rounded-lg"></div><div class="h-4 bg-white/10 rounded w-3/4"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Playlist Results -->
+            <div id="yt-results" class="hidden mt-6">
+                <div class="glass-card p-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                        <div>
+                            <h3 id="yt-playlist-title" class="text-xl font-bold"></h3>
+                            <p id="yt-video-count" class="text-sm text-gray-400"></p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="selectAllVideos()" class="px-3 py-1.5 text-sm bg-white/10 hover:bg-white/20 rounded-lg transition">Select All</button>
+                            <button onclick="deselectAllVideos()" class="px-3 py-1.5 text-sm bg-white/10 hover:bg-white/20 rounded-lg transition">Deselect All</button>
+                            <button onclick="downloadSelected()" class="px-4 py-1.5 text-sm bg-primary-600 hover:bg-primary-500 rounded-lg font-medium transition flex items-center gap-2">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div id="yt-video-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Tab -->
+        <section id="tab-books" class="tab-content hidden">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                    <i class="fas fa-book text-emerald-400 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold">Book Downloader</h2>
+                    <p class="text-gray-400 text-sm">Search & download digital books</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-6">
+                <div class="flex gap-3">
+                    <select id="book-search-type" class="bg-white/5 border border-white/10 rounded-xl px-3 py-3.5 text-sm outline-none focus:border-primary-500 w-28">
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="isbn">ISBN</option>
+                    </select>
+                    <div class="relative flex-1">
+                        <input type="text" id="book-query" placeholder="Search for books..."
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 pr-24 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition"
+                            onkeydown="if(event.key==='Enter') searchBooks()">
+                        <button onclick="searchBooks()" id="book-search-btn"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium text-sm transition flex items-center gap-2">
+                            <i class="fas fa-search"></i>
+                            <span class="hidden sm:inline">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Skeleton -->
+            <div id="book-skeleton" class="hidden mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="glass-card p-4 animate-pulse"><div class="flex gap-4"><div class="w-20 h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
+                <div class="glass-card p-4 animate-pulse"><div class="flex gap-4"><div class="w-20 h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
+                <div class="glass-card p-4 animate-pulse hidden lg:block"><div class="flex gap-4"><div class="w-20 h-28 bg-white/10 rounded"></div><div class="flex-1 space-y-2"><div class="h-4 bg-white/10 rounded w-3/4"></div><div class="h-3 bg-white/10 rounded w-1/2"></div><div class="h-3 bg-white/10 rounded w-full"></div></div></div></div>
+            </div>
+
+            <div id="book-results" class="hidden mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </section>
+
+        <!-- Queue Tab -->
+        <section id="tab-queue" class="tab-content hidden">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                        <i class="fas fa-list-check text-amber-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Download Queue</h2>
+                        <p class="text-gray-400 text-sm">Active and pending downloads</p>
+                    </div>
+                </div>
+                <button onclick="downloadAllAsZip()" id="zip-btn" class="hidden px-4 py-2 bg-primary-600 hover:bg-primary-500 rounded-lg text-sm font-medium transition flex items-center gap-2">
+                    <i class="fas fa-file-zipper"></i> Download ZIP
+                </button>
+            </div>
+            <div id="queue-list" class="space-y-3">
+                <div class="glass-card p-12 text-center text-gray-500">
+                    <i class="fas fa-inbox text-4xl mb-3 block"></i>
+                    <p>No active downloads</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Tab -->
+        <section id="tab-history" class="tab-content hidden">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                        <i class="fas fa-clock-rotate-left text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Download History</h2>
+                        <p class="text-gray-400 text-sm">Previously downloaded files</p>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <select id="history-filter" onchange="loadHistory()" class="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-primary-500">
+                        <option value="">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="failed">Failed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            <div id="history-list" class="space-y-3">
+                <div class="glass-card p-12 text-center text-gray-500">
+                    <i class="fas fa-clock-rotate-left text-4xl mb-3 block"></i>
+                    <p>No download history</p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-brand">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-primary-500/25">
+                    <i class="fas fa-download text-white text-sm"></i>
+                </div>
+                <p class="text-sm font-medium">MediaFlow</p>
+                <p class="text-xs opacity-50 mt-0.5">Premium Bulk Media Downloader</p>
+            </div>
+            <div class="footer-divider"></div>
+            <p class="footer-credit">
+                Designed &amp; Developed by <span class="brand">Francis Kusi</span>
+                <span class="brainiac">THE BRAINIAC</span>
+            </p>
+            <p class="footer-copy">&copy; 2026 All Rights Reserved</p>
+        </footer>
+    </div>
+</main>
+
+<!-- Mobile Bottom Nav -->
+<nav class="lg:hidden fixed bottom-0 inset-x-0 z-50 glass-nav">
+    <div class="flex justify-around items-center h-16">
+        <button onclick="switchTab('youtube')" data-tab="youtube" class="mobile-nav-item active">
+            <i class="fab fa-youtube text-lg"></i>
+            <span class="text-[10px] mt-0.5">YouTube</span>
+        </button>
+        <button onclick="switchTab('books')" data-tab="books" class="mobile-nav-item">
+            <i class="fas fa-book text-lg"></i>
+            <span class="text-[10px] mt-0.5">Books</span>
+        </button>
+        <button onclick="switchTab('queue')" data-tab="queue" class="mobile-nav-item relative">
+            <i class="fas fa-list-check text-lg"></i>
+            <span class="text-[10px] mt-0.5">Queue</span>
+            <span id="queue-badge-mobile" class="absolute -top-1 -right-1 badge-small hidden">0</span>
+        </button>
+        <button onclick="switchTab('history')" data-tab="history" class="mobile-nav-item">
+            <i class="fas fa-clock-rotate-left text-lg"></i>
+            <span class="text-[10px] mt-0.5">History</span>
+        </button>
+    </div>
+</nav>
+
+<script src="/static/js/app.js"></script>
+<script src="/static/js/youtube.js"></script>
+<script src="/static/js/books.js"></script>
+<script src="/static/js/downloads.js"></script>
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');</script>
+</body>
+</html>
