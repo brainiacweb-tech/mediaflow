@@ -57,39 +57,158 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative z-10 max-w-6xl mx-auto px-6 lg:px-16 pt-16 lg:pt-24 pb-20">
-        <div class="text-center max-w-4xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium mb-8 landing-fade-in">
-                <i class="fas fa-bolt"></i>
-                <span>Free & Open Source Media Downloader</span>
+    <section class="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pt-12 lg:pt-20 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Left: Text -->
+            <div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium mb-8 landing-fade-in">
+                    <i class="fas fa-bolt"></i>
+                    <span>Free & Open Source Media Downloader</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight landing-fade-in landing-delay-1">
+                    Download
+                    <span class="landing-gradient-text"> Everything.</span>
+                    <br>
+                    <span class="text-gray-400 text-3xl sm:text-4xl lg:text-5xl">Videos. Music. Books.</span>
+                </h1>
+
+                <p class="mt-6 text-lg text-gray-400 max-w-lg leading-relaxed landing-fade-in landing-delay-2">
+                    The ultimate bulk media downloader. Grab entire YouTube playlists in any quality,
+                    or search millions of free books from 5+ sources — all in one beautiful app.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-start gap-4 mt-8 landing-fade-in landing-delay-3">
+                    <button onclick="enterApp()" class="group px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1 flex items-center gap-3">
+                        <i class="fas fa-rocket"></i>
+                        Start Downloading
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <a href="#features" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl font-semibold text-lg transition-all flex items-center gap-3">
+                        <i class="fas fa-play-circle"></i>
+                        See Features
+                    </a>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="flex items-center gap-6 mt-10 landing-fade-in landing-delay-4">
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-shield-halved text-emerald-400"></i> No Sign-up
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-infinity text-purple-400"></i> No Limits
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-ban text-red-400"></i> No Ads
+                    </div>
+                </div>
             </div>
 
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight landing-fade-in landing-delay-1">
-                Download
-                <span class="landing-gradient-text"> Everything.</span>
-                <br>
-                <span class="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">Videos. Music. Books.</span>
-            </h1>
+            <!-- Right: Hero Visual / App Mockup -->
+            <div class="landing-fade-in landing-delay-3 relative">
+                <div class="hero-mockup">
+                    <!-- Glow behind -->
+                    <div class="hero-mockup-glow"></div>
+                    <!-- Browser frame -->
+                    <div class="hero-browser">
+                        <div class="hero-browser-bar">
+                            <div class="hero-browser-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <div class="hero-browser-url">
+                                <i class="fas fa-lock text-emerald-400" style="font-size:9px"></i>
+                                <span>mediaflow.app</span>
+                            </div>
+                        </div>
+                        <!-- App preview content -->
+                        <div class="hero-app-preview">
+                            <!-- Mini sidebar -->
+                            <div class="hero-sidebar">
+                                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center mb-4">
+                                    <i class="fas fa-download text-[8px]"></i>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="hero-nav-item active"><i class="fab fa-youtube text-[9px]"></i></div>
+                                    <div class="hero-nav-item"><i class="fas fa-book text-[9px]"></i></div>
+                                    <div class="hero-nav-item"><i class="fas fa-list-check text-[9px]"></i></div>
+                                </div>
+                            </div>
+                            <!-- Main area -->
+                            <div class="hero-main">
+                                <!-- Search bar mock -->
+                                <div class="hero-search-bar">
+                                    <div class="hero-search-input">
+                                        <i class="fas fa-link text-gray-600" style="font-size:8px"></i>
+                                        <span class="text-gray-500" style="font-size:9px">youtube.com/playlist?list=...</span>
+                                    </div>
+                                    <div class="hero-search-btn">
+                                        <i class="fas fa-search" style="font-size:7px"></i>
+                                    </div>
+                                </div>
+                                <!-- Video grid mock -->
+                                <div class="hero-video-grid">
+                                    <div class="hero-video-card">
+                                        <div class="hero-thumb" style="background: linear-gradient(135deg, #ef4444, #f97316)">
+                                            <i class="fab fa-youtube" style="font-size:14px; opacity:0.6"></i>
+                                            <span class="hero-duration">3:33</span>
+                                            <span class="hero-size-badge">5 MB</span>
+                                            <div class="hero-check"><i class="fas fa-check" style="font-size:6px"></i></div>
+                                        </div>
+                                        <div class="hero-vid-title"></div>
+                                    </div>
+                                    <div class="hero-video-card">
+                                        <div class="hero-thumb" style="background: linear-gradient(135deg, #8b5cf6, #6366f1)">
+                                            <i class="fas fa-music" style="font-size:12px; opacity:0.6"></i>
+                                            <span class="hero-duration">4:12</span>
+                                            <span class="hero-size-badge">8 MB</span>
+                                            <div class="hero-check"><i class="fas fa-check" style="font-size:6px"></i></div>
+                                        </div>
+                                        <div class="hero-vid-title"></div>
+                                    </div>
+                                    <div class="hero-video-card">
+                                        <div class="hero-thumb" style="background: linear-gradient(135deg, #10b981, #059669)">
+                                            <i class="fas fa-play" style="font-size:12px; opacity:0.6"></i>
+                                            <span class="hero-duration">12:05</span>
+                                            <span class="hero-size-badge">42 MB</span>
+                                            <div class="hero-check"><i class="fas fa-check" style="font-size:6px"></i></div>
+                                        </div>
+                                        <div class="hero-vid-title"></div>
+                                    </div>
+                                </div>
+                                <!-- Progress bar mock -->
+                                <div class="hero-progress-section">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span style="font-size:8px" class="text-emerald-400 font-bold">Downloading...</span>
+                                        <span style="font-size:8px" class="text-gray-500">67%</span>
+                                    </div>
+                                    <div class="hero-progress-bar">
+                                        <div class="hero-progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <p class="mt-8 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed landing-fade-in landing-delay-2">
-                The ultimate bulk media downloader. Grab entire YouTube playlists in any quality,
-                or search millions of free books from 5+ sources — all in one beautiful app.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 landing-fade-in landing-delay-3">
-                <button onclick="enterApp()" class="group px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1 flex items-center gap-3">
-                    <i class="fas fa-rocket"></i>
-                    Start Downloading
-                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </button>
-                <a href="#features" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl font-semibold text-lg transition-all flex items-center gap-3">
-                    <i class="fas fa-play-circle"></i>
-                    See Features
-                </a>
+                <!-- Floating badges around mockup -->
+                <div class="hero-float-badge badge-1">
+                    <i class="fab fa-youtube text-red-400"></i>
+                    <span>1080p</span>
+                </div>
+                <div class="hero-float-badge badge-2">
+                    <i class="fas fa-book text-emerald-400"></i>
+                    <span>PDF</span>
+                </div>
+                <div class="hero-float-badge badge-3">
+                    <i class="fas fa-music text-purple-400"></i>
+                    <span>MP3</span>
+                </div>
             </div>
         </div>
 
-        <!-- Hero Preview Cards -->
+        <!-- Preview Cards below -->
         <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 landing-fade-in landing-delay-4">
             <div class="landing-preview-card group">
                 <div class="flex items-center gap-3 mb-4">
