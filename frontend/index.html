@@ -27,6 +27,287 @@
 </head>
 <body class="bg-surface-950 text-white min-h-screen font-sans antialiased">
 
+<!-- ==================== LANDING PAGE ==================== -->
+<div id="landing-page" class="fixed inset-0 z-[200] bg-surface-950 overflow-y-auto">
+
+    <!-- Animated background -->
+    <div class="landing-bg">
+        <div class="landing-orb landing-orb-1"></div>
+        <div class="landing-orb landing-orb-2"></div>
+        <div class="landing-orb landing-orb-3"></div>
+        <div class="landing-grid"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="relative z-10 flex items-center justify-between px-6 lg:px-16 py-5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
+                <i class="fas fa-download text-lg"></i>
+            </div>
+            <span class="font-extrabold text-xl tracking-tight">MediaFlow</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+            <a href="#features" class="hover:text-white transition">Features</a>
+            <a href="#sources" class="hover:text-white transition">Sources</a>
+            <a href="#stats" class="hover:text-white transition">Stats</a>
+        </div>
+        <button onclick="enterApp()" class="px-5 py-2.5 bg-primary-600 hover:bg-primary-500 rounded-xl font-semibold text-sm transition-all hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5">
+            Launch App <i class="fas fa-arrow-right ml-1"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 max-w-6xl mx-auto px-6 lg:px-16 pt-16 lg:pt-24 pb-20">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm font-medium mb-8 landing-fade-in">
+                <i class="fas fa-bolt"></i>
+                <span>Free & Open Source Media Downloader</span>
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight landing-fade-in landing-delay-1">
+                Download
+                <span class="landing-gradient-text"> Everything.</span>
+                <br>
+                <span class="text-gray-400 text-4xl sm:text-5xl lg:text-6xl">Videos. Music. Books.</span>
+            </h1>
+
+            <p class="mt-8 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed landing-fade-in landing-delay-2">
+                The ultimate bulk media downloader. Grab entire YouTube playlists in any quality,
+                or search millions of free books from 5+ sources — all in one beautiful app.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 landing-fade-in landing-delay-3">
+                <button onclick="enterApp()" class="group px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1 flex items-center gap-3">
+                    <i class="fas fa-rocket"></i>
+                    Start Downloading
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <a href="#features" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl font-semibold text-lg transition-all flex items-center gap-3">
+                    <i class="fas fa-play-circle"></i>
+                    See Features
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Preview Cards -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 landing-fade-in landing-delay-4">
+            <div class="landing-preview-card group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fab fa-youtube text-red-400 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">YouTube</h3>
+                        <p class="text-xs text-gray-500">Videos & Playlists</p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Entire playlists in one click
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> 144p to 1080p quality
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> MP4 video or MP3 audio
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Real-time progress tracking
+                    </div>
+                </div>
+            </div>
+
+            <div class="landing-preview-card group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book text-emerald-400 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Books</h3>
+                        <p class="text-xs text-gray-500">PDF & EPUB</p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> 5+ search sources
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> PDF and EPUB formats
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Direct downloads to device
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Millions of free books
+                    </div>
+                </div>
+            </div>
+
+            <div class="landing-preview-card group">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bolt text-purple-400 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Power Features</h3>
+                        <p class="text-xs text-gray-500">Built for speed</p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Concurrent downloads
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> WebSocket live progress
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Dark & light themes
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-check text-emerald-400 text-xs"></i> Mobile-first responsive
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="relative z-10 py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 lg:px-16">
+            <div class="text-center mb-16">
+                <p class="text-primary-400 font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Why MediaFlow?</h2>
+                <p class="mt-4 text-gray-400 max-w-xl mx-auto">Built with modern tech for the best downloading experience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="landing-feature-card">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-600/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-layer-group text-red-400 text-lg"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Bulk Downloads</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Select and download entire playlists with a single click. Choose which videos you want.</p>
+                </div>
+                <div class="landing-feature-card">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-gauge-high text-blue-400 text-lg"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Live Progress</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Real-time WebSocket progress bars with speed and ETA for every download.</p>
+                </div>
+                <div class="landing-feature-card">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-emerald-400 text-lg"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">5+ Book Sources</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">OpenLibrary, Gutenberg, Archive.org, ISBNdb, and more — searched in parallel.</p>
+                </div>
+                <div class="landing-feature-card">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-screen text-purple-400 text-lg"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Mobile Ready</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Fully responsive PWA. Works beautifully on phones, tablets, and desktops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sources Section -->
+    <section id="sources" class="relative z-10 py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 lg:px-16">
+            <div class="text-center mb-16">
+                <p class="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-3">Integrations</p>
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Powered By</h2>
+                <p class="mt-4 text-gray-400 max-w-xl mx-auto">We aggregate the best free sources so you don't have to search everywhere.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="landing-source-card">
+                    <i class="fab fa-youtube text-2xl text-red-400 mb-2"></i>
+                    <span class="text-xs font-semibold">YouTube</span>
+                </div>
+                <div class="landing-source-card">
+                    <i class="fas fa-landmark text-2xl text-amber-400 mb-2"></i>
+                    <span class="text-xs font-semibold">Archive.org</span>
+                </div>
+                <div class="landing-source-card">
+                    <i class="fas fa-book-open text-2xl text-blue-400 mb-2"></i>
+                    <span class="text-xs font-semibold">OpenLibrary</span>
+                </div>
+                <div class="landing-source-card">
+                    <i class="fas fa-feather text-2xl text-yellow-400 mb-2"></i>
+                    <span class="text-xs font-semibold">Gutenberg</span>
+                </div>
+                <div class="landing-source-card">
+                    <i class="fas fa-barcode text-2xl text-purple-400 mb-2"></i>
+                    <span class="text-xs font-semibold">ISBNdb</span>
+                </div>
+                <div class="landing-source-card">
+                    <i class="fas fa-plus text-2xl text-gray-500 mb-2"></i>
+                    <span class="text-xs font-semibold text-gray-500">More Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="relative z-10 py-24 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 lg:px-16">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="landing-stat">
+                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">6</div>
+                    <p class="text-sm text-gray-500 mt-2">Quality Options</p>
+                </div>
+                <div class="landing-stat">
+                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">5+</div>
+                    <p class="text-sm text-gray-500 mt-2">Book Sources</p>
+                </div>
+                <div class="landing-stat">
+                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">50</div>
+                    <p class="text-sm text-gray-500 mt-2">Max Playlist Size</p>
+                </div>
+                <div class="landing-stat">
+                    <div class="text-4xl lg:text-5xl font-extrabold landing-gradient-text">0</div>
+                    <p class="text-sm text-gray-500 mt-2">Ads or Limits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative z-10 py-24 border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-6 lg:px-16 text-center">
+            <h2 class="text-4xl lg:text-5xl font-extrabold mb-6">Ready to Download?</h2>
+            <p class="text-lg text-gray-400 mb-10">No sign-up needed. No limits. Just paste a URL and go.</p>
+            <button onclick="enterApp()" class="group px-10 py-5 bg-gradient-to-r from-primary-600 to-purple-600 hover:from-primary-500 hover:to-purple-500 rounded-2xl font-bold text-xl transition-all shadow-2xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-1 inline-flex items-center gap-3">
+                <i class="fas fa-rocket"></i>
+                Launch MediaFlow
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Landing Footer -->
+    <footer class="relative z-10 border-t border-white/5 py-12">
+        <div class="max-w-6xl mx-auto px-6 lg:px-16 text-center">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary-500/25">
+                <i class="fas fa-download text-white"></i>
+            </div>
+            <p class="font-bold text-lg mb-1">MediaFlow</p>
+            <p class="text-xs text-gray-500 mb-6">Premium Bulk Media Downloader</p>
+            <div class="footer-divider"></div>
+            <p class="footer-credit mt-6">
+                Designed &amp; Developed by <span class="brand">Francis Kusi</span>
+                <span class="brainiac">THE BRAINIAC</span>
+            </p>
+            <p class="footer-copy">&copy; 2026 All Rights Reserved</p>
+        </div>
+    </footer>
+</div>
+
+<!-- ==================== MAIN APP (hidden until Enter) ==================== -->
+
 <!-- Toast Container -->
 <div id="toast-container" class="fixed top-4 right-4 z-[100] space-y-2 max-w-sm"></div>
 

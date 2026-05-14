@@ -3,6 +3,25 @@ let currentTab = 'youtube';
 let ws = null;
 let darkMode = true;
 
+// Landing page transition
+function enterApp() {
+    const landing = document.getElementById('landing-page');
+    if (!landing) return;
+    landing.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    landing.style.opacity = '0';
+    landing.style.transform = 'scale(1.02)';
+    setTimeout(function() {
+        landing.style.display = 'none';
+        sessionStorage.setItem('mf_entered', '1');
+    }, 500);
+}
+
+// Skip landing if already entered this session
+if (sessionStorage.getItem('mf_entered')) {
+    var lp = document.getElementById('landing-page');
+    if (lp) lp.style.display = 'none';
+}
+
 // Tab switching
 function switchTab(tab) {
     currentTab = tab;

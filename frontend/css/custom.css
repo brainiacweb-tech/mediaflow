@@ -226,6 +226,155 @@ html:not(.dark) ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); }
 .downloading-pulse { animation: downloadPulse 2s ease-in-out infinite; }
 @keyframes downloadPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
+/* ==================== LANDING PAGE ==================== */
+
+/* Animated background */
+.landing-bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.landing-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.3;
+    animation: orbFloat 20s ease-in-out infinite;
+}
+.landing-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #6366f1, transparent 70%);
+    top: -200px; left: -100px;
+    animation-delay: 0s;
+}
+.landing-orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #a855f7, transparent 70%);
+    bottom: -150px; right: -100px;
+    animation-delay: -7s;
+}
+.landing-orb-3 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #ec4899, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -14s;
+    opacity: 0.15;
+}
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(40px, -30px) scale(1.05); }
+    50% { transform: translate(-20px, 40px) scale(0.95); }
+    75% { transform: translate(30px, 20px) scale(1.03); }
+}
+.landing-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+}
+
+/* Gradient text */
+.landing-gradient-text {
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Fade-in animations */
+.landing-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: landingFadeIn 0.8s ease forwards;
+}
+.landing-delay-1 { animation-delay: 0.15s; }
+.landing-delay-2 { animation-delay: 0.3s; }
+.landing-delay-3 { animation-delay: 0.45s; }
+.landing-delay-4 { animation-delay: 0.6s; }
+@keyframes landingFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Preview cards */
+.landing-preview-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 24px;
+    transition: all 0.4s ease;
+}
+.landing-preview-card:hover {
+    border-color: rgba(99,102,241,0.3);
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(99,102,241,0.1);
+}
+
+/* Feature cards */
+.landing-feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 28px;
+    transition: all 0.4s ease;
+}
+.landing-feature-card:hover {
+    border-color: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    transform: translateY(-4px);
+}
+
+/* Source cards */
+.landing-source-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+.landing-source-card:hover {
+    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-3px);
+}
+
+/* Stat counter */
+.landing-stat {
+    padding: 20px;
+}
+
+/* Light mode overrides for landing */
+html:not(.dark) .landing-bg .landing-orb { opacity: 0.12; }
+html:not(.dark) .landing-grid {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+html:not(.dark) .landing-preview-card,
+html:not(.dark) .landing-feature-card,
+html:not(.dark) .landing-source-card {
+    background: rgba(255,255,255,0.6);
+    border-color: rgba(0,0,0,0.06);
+}
+html:not(.dark) .landing-preview-card:hover,
+html:not(.dark) .landing-feature-card:hover {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(99,102,241,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+}
+
 /* Responsive tweaks */
 @media (max-width: 640px) {
     .glass-card { border-radius: 12px; }
