@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from pathlib import Path
+from urllib.parse import quote
 from backend.database import get_db
 from backend.models import DownloadTask, TaskStatus
 from backend.schemas import TaskResponse
@@ -45,10 +46,15 @@ async def download_file(task_id: str, db: AsyncSession = Depends(get_db)):
     if not fp.exists():
         raise HTTPException(status_code=404, detail="File has been deleted")
 
+    safe_name = quote(fp.name)
     return FileResponse(
         path=str(fp),
         filename=fp.name,
         media_type="application/octet-stream",
+        headers={
+            "Content-Disposition": f"attachment; filename=\"{safe_name}\"; filename*=UTF-8''{safe_name}",
+            "Cache-Control": "no-cache",
+        },
     )
 
 

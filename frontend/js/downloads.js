@@ -37,7 +37,7 @@ function renderTaskItem(t) {
         <div class="glass-card queue-item p-4 ${isActive ? 'downloading-pulse' : ''}" id="task-${t.id}" data-status="${t.status}">
             <div class="flex items-start gap-3">
                 <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-white/5 flex items-center justify-center">
-                    ${t.thumbnail ? `<img src="${t.thumbnail}" alt="" class="w-full h-full object-cover">` : `<i class="${typeIcon} text-lg"></i>`}
+                    ${t.thumbnail ? `<img src="${t.thumbnail}" alt="" class="w-full h-full object-cover" referrerpolicy="no-referrer">` : `<i class="${typeIcon} text-lg"></i>`}
                 </div>
                 <div class="flex-1 min-w-0">
                     <div class="flex items-start justify-between gap-2">
@@ -51,7 +51,7 @@ function renderTaskItem(t) {
                             </div>
                         </div>
                         <div class="flex items-center gap-1 flex-shrink-0">
-                            ${isComplete ? `<a href="/api/downloads/${t.id}/file" download class="download-btn p-2 rounded-lg hover:bg-white/10 transition text-emerald-400" title="Download"><i class="fas fa-download"></i></a>` : ''}
+                            ${isComplete ? `<button onclick="downloadTaskFile('${t.id}')" class="download-btn p-2 rounded-lg hover:bg-white/10 transition text-emerald-400" title="Download"><i class="fas fa-download"></i></button>` : ''}
                             ${isActive || t.status === 'pending' ? `<button onclick="cancelTask('${t.id}')" class="p-2 rounded-lg hover:bg-white/10 transition text-red-400" title="Cancel"><i class="fas fa-xmark"></i></button>` : ''}
                             ${isComplete || isFailed ? `<button onclick="deleteTask('${t.id}')" class="p-2 rounded-lg hover:bg-white/10 transition text-gray-500" title="Remove"><i class="fas fa-trash-can"></i></button>` : ''}
                         </div>
@@ -152,6 +152,10 @@ async function downloadAllAsZip() {
     } catch (e) {
         showToast(e.message, 'error');
     }
+}
+
+function downloadTaskFile(taskId) {
+    window.location.href = '/api/downloads/' + taskId + '/file';
 }
 
 // Auto-refresh queue every 5 seconds

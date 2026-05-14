@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -27,6 +28,14 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["Content-Disposition", "Content-Length"],
+)
+
 app.include_router(youtube.router)
 app.include_router(books.router)
 app.include_router(downloads.router)
@@ -42,7 +51,11 @@ async def root():
 
 @app.get("/sw.js")
 async def service_worker():
-    return FileResponse("frontend/sw.js", media_type="application/javascript")
+    return FileResponse(
+        "frontend/sw.js",
+        media_type="application/javascript",
+        headers={"Cache-Control": "no-cache, no-store, must-revalidate"},
+    )
 
 
 @app.get("/manifest.json")

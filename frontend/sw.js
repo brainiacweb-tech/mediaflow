@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mediaflow-v2';
+const CACHE_NAME = 'mediaflow-v3';
 const ASSETS = [
   '/',
   '/static/css/custom.css',

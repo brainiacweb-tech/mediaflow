@@ -65,7 +65,7 @@ function renderBooks(books) {
             <div class="flex gap-4">
                 <div class="w-20 h-28 rounded-lg overflow-hidden flex-shrink-0 bg-white/5">
                     ${b.cover_url
-                        ? `<img src="${b.cover_url}" alt="" class="w-full h-full object-cover" loading="lazy"
+                        ? `<img src="${b.cover_url}" alt="" class="w-full h-full object-cover" loading="lazy" referrerpolicy="no-referrer"
                             onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center\\'><i class=\\'fas fa-book text-2xl text-gray-600\\'></i></div>'">`
                         : '<div class="w-full h-full flex items-center justify-center"><i class="fas fa-book text-2xl text-gray-600"></i></div>'}
                 </div>
@@ -140,10 +140,8 @@ async function downloadBook(idx, btnEl, preferredFmt) {
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
-        setTimeout(() => {
-            document.body.removeChild(a);
-            URL.revokeObjectURL(blobUrl);
-        }, 5000);
+        document.body.removeChild(a);
+        setTimeout(function() { URL.revokeObjectURL(blobUrl); }, 10000);
 
         showToast(`"${book.title}" downloaded! Check your downloads folder.`, 'success');
     } catch (e) {

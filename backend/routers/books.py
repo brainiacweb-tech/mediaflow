@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
+from urllib.parse import quote
 from backend.database import get_db
 from backend.models import DownloadTask, TaskType, TaskStatus
 from backend.schemas import BookSearchRequest, BookInfo, TaskResponse
@@ -61,10 +62,16 @@ async def download_book(
         await db.commit()
 
         fp = Path(result["file_path"])
+        fname = result.get("filename", fp.name)
+        safe_name = quote(fname)
         return FileResponse(
             path=str(fp),
-            filename=result.get("filename", fp.name),
+            filename=fname,
             media_type="application/octet-stream",
+            headers={
+                "Content-Disposition": f"attachment; filename=\"{safe_name}\"; filename*=UTF-8''{safe_name}",
+                "Cache-Control": "no-cache",
+            },
         )
     except HTTPException:
         raise

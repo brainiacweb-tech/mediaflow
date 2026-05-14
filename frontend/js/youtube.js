@@ -59,7 +59,7 @@ function renderPlaylist() {
         var isSelected = selectedVideos.has(v.id);
         var cardClass = 'video-card' + (isSelected ? ' selected' : '');
         var thumb = v.thumbnail
-            ? '<img src="' + v.thumbnail + '" alt="" loading="lazy">'
+            ? '<img src="' + v.thumbnail + '" alt="" loading="lazy" referrerpolicy="no-referrer">'
             : '<div class="w-full h-full flex items-center justify-center"><i class="fas fa-film text-3xl text-gray-600"></i></div>';
         var durationHtml = v.duration ? '<span class="duration-badge">' + v.duration + '</span>' : '';
         var sizeHtml = size ? '<span class="size-badge">' + size + '</span>' : '';
